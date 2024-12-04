@@ -1,0 +1,77 @@
+
+\documentclass{article}
+\usepackage{listings}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\title{First-Package: Estructura y Documentación}
+\begin{document}
+\maketitle
+\section{Estructura del Paquete}
+La estructura ideal para el paquete \texttt{First-Package} es la siguiente:
+
+\begin{verbatim}
+First-Package/
+├── First-Package/
+│   ├── __init__.py
+│   ├── module1.py
+│   ├── module2.py
+├── tests/
+│   ├── __init__.py
+│   ├── test_module1.py
+│   └── test_module2.py
+├── README.md
+├── setup.py
+├── LICENSE
+├── .gitignore
+└── requirements.txt
+\end{verbatim}
+
+\section{Descripción de Archivos}
+\begin{itemize}
+    \item \texttt{First-Package/\_\_init\_\_.py}: Inicializa el paquete \texttt{First-Package}.
+    \item \texttt{First-Package/module1.py} y \texttt{First-Package/module2.py}: Contienen la lógica y funciones del paquete.
+    \item \texttt{tests/}: Directorio que contiene los archivos de prueba para cada módulo.
+    \item \texttt{README.md}: Documentación básica del paquete.
+    \item \texttt{setup.py}: Script de configuración para instalar el paquete.
+    \item \texttt{LICENSE}: Documento de licencia del paquete.
+    \item \texttt{.gitignore}: Archivos y carpetas que Git debería ignorar.
+    \item \texttt{requirements.txt}: Lista de dependencias del paquete.
+\end{itemize}
+
+\section{Instalación y Ejecución}
+Para instalar este paquete de manera local:
+
+\begin{verbatim}
+pip install -e .
+\end{verbatim}
+
+Para ejecutar funciones:
+
+\begin{verbatim}
+from First-Package import module1
+module1.example_function()
+\end{verbatim}
+
+\section{Uso de Git y GitHub en Visual Studio Code}
+\begin{enumerate}
+    \item Inicializar Git en el terminal de VS Code: \texttt{git init}.
+    \item Conectar con GitHub: Crear un repositorio y agregarlo como remoto.
+    \item Añadir y confirmar cambios: \texttt{git add .}, \texttt{git commit -m "mensaje"}.
+    \item Subir el código: \texttt{git push -u origin main}.
+\end{enumerate}
+
+\section{Uso del Paquete por un Usuario Externo}
+Un usuario puede instalar el paquete ejecutando:
+
+\begin{verbatim}
+pip install git+https://github.com/usuario/First-Package.git
+\end{verbatim}
+
+Luego puede usarlo como:
+
+\begin{verbatim}
+from First-Package import module1
+module1.example_function()
+\end{verbatim}
+
+\end{document}
