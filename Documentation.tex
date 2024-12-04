@@ -3,22 +3,24 @@
 \usepackage{listings}
 \usepackage{geometry}
 \geometry{a4paper, margin=1in}
-\title{First-Package: Estructura y Documentación}
+\title{Fathipy: Estructura y Documentación}
 \begin{document}
 \maketitle
 \section{Estructura del Paquete}
-La estructura ideal para el paquete \texttt{First-Package} es la siguiente:
+La estructura ideal para el paquete \texttt{Fathipy} es la siguiente:
 
 \begin{verbatim}
-First-Package/
-├── First-Package/
+Fathipy/
+├── Fathipy/
 │   ├── __init__.py
-│   ├── module1.py
-│   ├── module2.py
+│   ├── three_vector.py
+│   ├── rotation.py
+│   ├── SMparticle.py
 ├── tests/
 │   ├── __init__.py
-│   ├── test_module1.py
-│   └── test_module2.py
+│   ├── test_threevector.py
+│   ├── test_rotation.py
+│   ├── test_SMparticle.py
 ├── README.md
 ├── setup.py
 ├── LICENSE
@@ -28,10 +30,10 @@ First-Package/
 
 \section{Descripción de Archivos}
 \begin{itemize}
-    \item \texttt{First-Package/\_\_init\_\_.py}: Inicializa el paquete \texttt{First-Package}.
-    \item \texttt{First-Package/module1.py} y \texttt{First-Package/module2.py}: Contienen la lógica y funciones del paquete.
+    \item \texttt{Fathipy/\_\_init\_\_.py}: Inicializa el paquete \texttt{Fathipy}.
+    \item \texttt{Fathipy/three_vector.py}, \texttt{Fathipy/rotation.py} y \texttt{Fathipy/SMparticle.py}: Contienen la lógica y funciones principales del paquete, como la manipulación de vectores, rotaciones y partículas del modelo estándar.
     \item \texttt{tests/}: Directorio que contiene los archivos de prueba para cada módulo.
-    \item \texttt{README.md}: Documentación básica del paquete.
+    \item \texttt{README.md}: Documentación básica del paquete, incluyendo instrucciones de instalación y ejemplos de uso.
     \item \texttt{setup.py}: Script de configuración para instalar el paquete.
     \item \texttt{LICENSE}: Documento de licencia del paquete.
     \item \texttt{.gitignore}: Archivos y carpetas que Git debería ignorar.
@@ -45,33 +47,96 @@ Para instalar este paquete de manera local:
 pip install -e .
 \end{verbatim}
 
-Para ejecutar funciones:
+\section{Uso}
 
+\subsection{ThreeVector}
+La clase \texttt{ThreeVector} permite trabajar con vectores tridimensionales y realizar operaciones matemáticas sobre ellos.
+
+\textbf{Ejemplo de uso:}
 \begin{verbatim}
-from First-Package import module1
-module1.example_function()
+from Fathipy.three_vector import ThreeVector
+
+# Crear un vector
+v1 = ThreeVector(1, 2, 3)
+
+# Crear otro vector
+v2 = ThreeVector(4, 5, 6)
+
+# Sumar vectores
+v3 = v1 + v2
+print(v3)  # ThreeVector(x=5, y=7, z=9)
+
+# Producto cruzado
+v4 = v1.cross(v2)
+print(v4)  # ThreeVector(x=-3, y=6, z=-3)
+
+# Producto punto
+dot_product = v1.dot(v2)
+print(dot_product)  # 32
 \end{verbatim}
 
-\section{Uso de Git y GitHub en Visual Studio Code}
-\begin{enumerate}
-    \item Inicializar Git en el terminal de VS Code: \texttt{git init}.
-    \item Conectar con GitHub: Crear un repositorio y agregarlo como remoto.
-    \item Añadir y confirmar cambios: \texttt{git add .}, \texttt{git commit -m "mensaje"}.
-    \item Subir el código: \texttt{git push -u origin main}.
-\end{enumerate}
+\subsection{Rotation}
+La clase \texttt{Rotation} permite aplicar rotaciones 3D sobre vectores utilizando la fórmula de Rodrigues.
+
+\textbf{Ejemplo de uso:}
+\begin{verbatim}
+from Fathipy.rotation import Rotation
+from Fathipy.three_vector import ThreeVector
+import numpy as np
+
+# Crear un eje de rotación
+axis = ThreeVector(0, 0, 1)  # Eje Z
+
+# Crear una rotación de 90 grados (π/2 radianes) alrededor del eje Z
+rotation = Rotation(np.pi / 2, axis)
+
+# Crear un vector
+v = ThreeVector(1, 0, 0)
+
+# Aplicar la rotación
+v_rotated = rotation.apply(v)
+print(v_rotated)  # ThreeVector(x=0.0, y=1.0, z=0.0)
+\end{verbatim}
+
+\subsection{StandardModelParticle}
+La clase \texttt{StandardModelParticle} representa una partícula del modelo estándar con propiedades como su nombre, símbolo, masa, carga, espín, tipo de partícula y si es una antipartícula.
+
+\textbf{Ejemplo de uso:}
+\begin{verbatim}
+from Fathipy.SMparticle import StandardModelParticle
+
+# Crear una partícula
+electron = StandardModelParticle(
+    name="Electron",
+    symbol="e-",
+    mass=0.511,
+    charge=-1,
+    spin=0.5,
+    type_of_particle="fermion"
+)
+
+# Obtener la descripción de la partícula
+print(electron.info())
+# Output: Electron (e-) - Masa: 0.511 MeV/c^2, Carga: -1, Espín: 0.5, Tipo: fermion, Antipartícula: False
+\end{verbatim}
+
+\section{Pruebas}
+El paquete incluye pruebas unitarias para verificar que las funcionalidades estén implementadas correctamente. Para ejecutar las pruebas, usa el siguiente comando:
+
+\begin{verbatim}
+python -m unittest discover -s tests
+\end{verbatim}
+
+Este comando buscará y ejecutará todas las pruebas del paquete. Las pruebas cubren la correcta inicialización de las clases, las operaciones matemáticas y la manipulación de partículas.
+
+\section{Licencia}
+Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo \texttt{LICENSE} en el repositorio.
 
 \section{Uso del Paquete por un Usuario Externo}
 Un usuario puede instalar el paquete ejecutando:
 
 \begin{verbatim}
-pip install git+https://github.com/usuario/First-Package.git
-\end{verbatim}
-
-Luego puede usarlo como:
-
-\begin{verbatim}
-from First-Package import module1
-module1.example_function()
+pip install git+https://github.com/Fath1710/Fathipy_package.git
 \end{verbatim}
 
 \end{document}
