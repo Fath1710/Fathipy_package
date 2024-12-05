@@ -12,15 +12,14 @@ pip install .
 ## Interfas grafica
 
 **Fathipy** cuenta con una interfas grafica de presentacion de la paqueteria, asi como un uso sencillo de los mosulos disponibles.
-
-
-## Uso
-
-A continuación se describen los módulos disponibles en **Fathipy** y cómo usarlos.
-
+Para acceder a la intefarz, debes ejecutar el siguiente comando.
 ```bash
 Fathipay_gui
 ```
+
+## Mosulos disponibles y uso
+
+A continuación se describen los módulos disponibles en **Fathipy** y cómo usarlos.
 
 ### Módulo `ThreeVector`
 
