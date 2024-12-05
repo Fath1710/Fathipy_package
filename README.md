@@ -9,13 +9,14 @@ Puedes instalar este paquete utilizando `pip` desde un repositorio local, si has
 pip install .
 ```
 
-## Uso
-
-A continuación se describen los módulos disponibles en **Fathipy** y cómo usarlos.
-
 ## Interfas grafica
 
 **Fathipy** cuenta con una interfas grafica de presentacion de la paqueteria, asi como un uso sencillo de los mosulos disponibles.
+
+
+## Uso
+
+A continuación se describen los módulos disponibles en **Fathipy** y cómo usarlos.
 
 ```bash
 Fathipay_gui
