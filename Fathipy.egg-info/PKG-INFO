@@ -2,12 +2,127 @@ Metadata-Version: 2.1
 Name: Fathipy
 Version: 1.0
 Summary:  Clases para representar y manipular vectores, partículas del modelo estándar.
-Home-page: UNKNOWN
+Home-page: https://github.com/Fath1710/Fathipy_package
 Author: Fathima Viviana Lopez Nataren
 Author-email: fath.nataren@ciecnias.unam.mx
-License: MIT LICENSE
-Platform: any
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
 License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: PyQt5
 
-UNKNOWN
+# Fathipy
 
+**Fathipy** es un paquete en Python que implementa clases para representar y manipular vectores, partÃ­culas del modelo estÃ¡ndar y operaciones de rotaciÃ³n en 3D. Este paquete incluye funcionalidades para trabajar con `ThreeVector`, `Rotation` y `StandardModelParticle`, lo que lo hace Ãºtil para cÃ¡lculos y simulaciones en fÃ­sica, especialmente en el contexto de la teorÃ­a de partÃ­culas.
+## InstalaciÃ³n
+
+Puedes instalar este paquete utilizando `pip` desde un repositorio local, si has descargado el proyecto o si tienes el archivo comprimido. Si tienes el proyecto en tu mÃ¡quina, solo necesitas correr el siguiente comando en la terminal desde el directorio raÃ­z del proyecto:
+
+```bash
+pip install .
+```
+
+## Uso
+
+A continuaciÃ³n se describen los mÃ³dulos disponibles en **Fathipy** y cÃ³mo usarlos.
+
+### MÃ³dulo `ThreeVector`
+
+La clase `ThreeVector` representa un vector tridimensional, con mÃ©todos para realizar operaciones comunes como la suma, la resta, el producto punto, y el producto cruzado.
+
+#### Ejemplo de uso:
+
+```python
+from Fathipy.three_vector import ThreeVector
+
+# Crear un vector
+v1 = ThreeVector(1, 2, 3)
+
+# Crear otro vector
+v2 = ThreeVector(4, 5, 6)
+
+# Sumar vectores
+v3 = v1 + v2
+print(v3)  # ThreeVector(x=5, y=7, z=9)
+
+# Producto cruzado
+v4 = v1.cross(v2)
+print(v4)  # ThreeVector(x=-3, y=6, z=-3)
+
+# Producto punto
+dot_product = v1.dot(v2)
+print(dot_product)  # 32
+```
+
+### MÃ³dulo `Rotation`
+
+La clase `Rotation` permite realizar rotaciones en 3D utilizando el Ã¡ngulo de rotaciÃ³n y el eje de rotaciÃ³n. Implementa la fÃ³rmula de Rodrigues para obtener la matriz de rotaciÃ³n.
+
+#### Ejemplo de uso:
+
+```python
+from Fathipy.rotation import Rotation
+from Fathipy.three_vector import ThreeVector
+import numpy as np
+
+# Crear un eje de rotaciÃ³n
+axis = ThreeVector(0, 0, 1)  # Eje Z
+
+# Crear una rotaciÃ³n de 90 grados (Ï€/2 radianes) alrededor del eje Z
+rotation = Rotation(np.pi / 2, axis)
+
+# Crear un vector
+v = ThreeVector(1, 0, 0)
+
+# Aplicar la rotaciÃ³n
+v_rotated = rotation.apply(v)
+print(v_rotated)  # ThreeVector(x=0.0, y=1.0, z=0.0)
+```
+
+### MÃ³dulo `StandardModelParticle`
+
+La clase `StandardModelParticle` representa una partÃ­cula del modelo estÃ¡ndar de fÃ­sica de partÃ­culas. Permite almacenar propiedades como el nombre, sÃ­mbolo, masa, carga, espÃ­n, tipo de partÃ­cula y si es una antipartÃ­cula. TambiÃ©n tiene un mÃ©todo `info()` que devuelve una descripciÃ³n de la partÃ­cula.
+
+#### Ejemplo de uso:
+
+```python
+from Fathipy.SMparticle import StandardModelParticle
+
+# Crear una partÃ­cula
+electron = StandardModelParticle(
+    name="Electron",
+    symbol="e-",
+    mass=0.511,
+    charge=-1,
+    spin=0.5,
+    type_of_particle="fermion"
+)
+
+# Obtener la descripciÃ³n de la partÃ­cula
+print(electron.info())
+# Output: Electron (e-) - Masa: 0.511 MeV/c^2, Carga: -1, EspÃ­n: 0.5, Tipo: fermion, AntipartÃ­cula: False
+```
+
+## Pruebas
+
+El paquete incluye pruebas unitarias para asegurarse de que todas las funcionalidades estÃ¡n implementadas correctamente. Para ejecutar las pruebas, puedes usar el siguiente comando:
+
+```bash
+python -m unittest discover -s tests
+```
+
+Las pruebas estÃ¡n diseÃ±adas para verificar el comportamiento esperado de cada clase y mÃ©todo en el paquete, como la correcta inicializaciÃ³n de objetos, las operaciones de rotaciÃ³n y las descripciones de partÃ­culas.
+
+## ContribuciÃ³n
+
+Si deseas contribuir al proyecto, siÃ©ntete libre de hacer un fork y enviar un pull request. AsegÃºrate de seguir las convenciones de codificaciÃ³n y de agregar pruebas para cualquier nueva funcionalidad que implementes.
+
+## Licencia
+
+Este proyecto estÃ¡ bajo la Licencia MIT. Consulta el archivo `LICENSE` para mÃ¡s detalles.
+
+```
