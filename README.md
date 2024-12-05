@@ -13,6 +13,14 @@ pip install .
 
 A continuación se describen los módulos disponibles en **Fathipy** y cómo usarlos.
 
+## Interfas grafica
+
+**Fathipy** cuenta con una interfas grafica de presentacion de la paqueteria, asi como un uso sencillo de los mosulos disponibles.
+
+```bash
+Fathipay_gui
+```
+
 ### Módulo `ThreeVector`
 
 La clase `ThreeVector` representa un vector tridimensional, con métodos para realizar operaciones comunes como la suma, la resta, el producto punto, y el producto cruzado.
@@ -100,12 +108,6 @@ python -m unittest discover -s tests
 
 Las pruebas están diseñadas para verificar el comportamiento esperado de cada clase y método en el paquete, como la correcta inicialización de objetos, las operaciones de rotación y las descripciones de partículas.
 
-## Contribución
-
-Si deseas contribuir al proyecto, siéntete libre de hacer un fork y enviar un pull request. Asegúrate de seguir las convenciones de codificación y de agregar pruebas para cualquier nueva funcionalidad que implementes.
-
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
-
-```
