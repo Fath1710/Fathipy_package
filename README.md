@@ -14,7 +14,7 @@ pip install .
 **Fathipy** cuenta con una interfas grafica de presentacion de la paqueteria, asi como un uso sencillo de los mosulos disponibles.
 Para acceder a la intefarz, debes ejecutar el siguiente comando.
 ```bash
-Fathipay_gui
+Fathipy_gui
 ```
 
 ## Mosulos disponibles y uso
