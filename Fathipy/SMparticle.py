@@ -1,5 +1,5 @@
 class StandardModelParticle:
-    def __init__(self, name, symbol, mass, charge, spin, type_of_particle, is_antiparticle=False):
+    def __init__(self, name, symbol, mass, charge, spin, type_of_particle, is_antiparticle=False,mean_life=None):
         """
         Clase que representa una partícula del modelo estándar.
         
@@ -18,8 +18,8 @@ class StandardModelParticle:
         self.spin = spin
         self.type_of_particle = type_of_particle
         self.is_antiparticle = is_antiparticle
-
+        self.mean_life = mean_life
     def info(self):
         """Devuelve una descripción de la partícula."""
         return (f"{self.name} ({self.symbol}) - Masa: {self.mass} MeV/c^2, Carga: {self.charge}, "
-                f"Espín: {self.spin}, Tipo: {self.type_of_particle}, Antipartícula: {self.is_antiparticle}")
+                f"Espín: {self.spin}, Tipo: {self.type_of_particle}, Antipartícula: {self.is_antiparticle}, Vida Media {self.mean_life}")
