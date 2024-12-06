@@ -9,17 +9,17 @@ Puedes instalar este paquete utilizando `pip` desde un repositorio local, si has
 pip install .
 ```
 
-## Interfas grafica
+## Interfaz grafica
 
-**Fathipy** cuenta con una interfas grafica de presentacion de la paqueteria, asi como un uso sencillo de los mosulos disponibles.
-Para acceder a la intefarz, debes ejecutar el siguiente comando.
+**Fathipy** cuenta con una interfaz grafica de presentacion de la paquetería, así como un uso sencillo de los módulos disponibles.
+Para acceder a la interfaz, debes ejecutar el siguiente comando.
 ```bash
 Fathipy_gui
 ```
 
-## Mosulos disponibles y uso
+## Modulos disponibles y uso
 
-A continuación se describen los módulos disponibles en **Fathipy** y cómo usarlos.
+A continuación, se describen los módulos disponibles en **Fathipy** y cómo usarlos.
 
 ### Módulo `ThreeVector`
 
