@@ -1,6 +1,10 @@
 # Fathipy
 
 **Fathipy** es un paquete en Python que implementa clases para representar y manipular vectores, partículas del modelo estándar y operaciones de rotación en 3D. Este paquete incluye funcionalidades para trabajar con `ThreeVector`, `Rotation` y `StandardModelParticle`, lo que lo hace útil para cálculos y simulaciones en física, especialmente en el contexto de la teoría de partículas.
+
+### Link de descarga de la paquetería desde github
+https://github.com/Fath1710/Fathipy_package.git
+
 ## Instalación
 
 Puedes instalar este paquete utilizando `pip` desde un repositorio local, si has descargado el proyecto o si tienes el archivo comprimido. Si tienes el proyecto en tu máquina, solo necesitas correr el siguiente comando en la terminal desde el directorio raíz del proyecto:
@@ -38,15 +42,15 @@ v2 = ThreeVector(4, 5, 6)
 
 # Sumar vectores
 v3 = v1 + v2
-print(v3)  # ThreeVector(x=5, y=7, z=9)
+print(v3)  
 
 # Producto cruzado
 v4 = v1.cross(v2)
-print(v4)  # ThreeVector(x=-3, y=6, z=-3)
+print(v4)  
 
 # Producto punto
 dot_product = v1.dot(v2)
-print(dot_product)  # 32
+print(dot_product)  
 ```
 
 ### Módulo `Rotation`
@@ -71,7 +75,7 @@ v = ThreeVector(1, 0, 0)
 
 # Aplicar la rotación
 v_rotated = rotation.apply(v)
-print(v_rotated)  # ThreeVector(x=0.0, y=1.0, z=0.0)
+print(v_rotated)  
 ```
 
 ### Módulo `StandardModelParticle`
